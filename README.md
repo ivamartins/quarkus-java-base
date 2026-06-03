@@ -44,6 +44,36 @@ If you want to build an _über-jar_, execute the following command:
 
 The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
 
+## Running the tests
+
+**Português:**
+
+```bash
+./mvnw test
+```
+
+Ou para rodar apenas o teste básico:
+
+```bash
+./mvnw test -Dtest=LegacyResourceTest
+```
+
+Testes usam `@QuarkusTest` + JUnit 5. O teste básico de legado não requer serviços externos.
+
+**English:**
+
+```bash
+./mvnw test
+```
+
+Or run a specific basic test:
+
+```bash
+./mvnw test -Dtest=LegacyResourceTest
+```
+
+Tests use `@QuarkusTest` (JUnit 5). The basic legacy test does not require any external services.
+
 ## Creating a native executable
 
 You can create a native executable using:
