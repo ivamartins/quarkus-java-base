@@ -13,6 +13,36 @@ Minimal, functional Quarkus (modern Java) base project.
 
 **This is a starting framework for legacy system modernization with modern Java (alternative/supplement to Play/Spring).**
 
+## Quick Start / Como rodar a aplicação
+
+**Pré-requisitos:** Java 17+ (recomendado) e Maven (ou use o wrapper `./mvnw`).
+
+**Modo de desenvolvimento (recomendado para começar):**
+
+```bash
+./mvnw compile quarkus:dev
+```
+
+Acesse: http://localhost:8080
+
+- Endpoint principal de exemplo: `/legacy`
+- Dev UI disponível em: http://localhost:8080/q/dev/
+
+**English:**
+
+**Prerequisites:** Java 17+ (recommended) and Maven (wrapper `./mvnw` included).
+
+**Development mode (recommended to start):**
+
+```bash
+./mvnw compile quarkus:dev
+```
+
+Open: http://localhost:8080
+
+- Main example endpoint: `/legacy`
+- Dev UI: http://localhost:8080/q/dev/
+
 ## Running the application in dev mode
 
 You can run your application in dev mode that enables live coding using:
