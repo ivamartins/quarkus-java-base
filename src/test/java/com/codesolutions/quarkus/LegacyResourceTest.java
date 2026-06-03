@@ -14,7 +14,7 @@ class LegacyResourceTest {
           .when().get("/legacy")
           .then()
              .statusCode(200)
-             .body(is("Hello from Quarkus REST"));
+             .body(is("Hello from Quarkus REST - legacy modernization base (Code Solutions example)"));
     }
 
 }
