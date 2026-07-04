@@ -1,131 +1,66 @@
 # quarkus-java-base
 
-Base funcional mínima em Quarkus (Java moderno) .
-
-**Este é um framework inicial para modernização de sistemas legados com Java moderno (alternativa/suplemento a Play/Spring).**
-
-**Português (resumo):**
-Demonstra Quarkus para desenvolvimento Java rápido e leve. Pronto para estender com Kafka, REST para legados, integração com agentes IA, DBs, etc. Perfeito para modernizar apps legados Java EE/Play para Quarkus nativo, backends escaláveis, e adicionar automações com IA.
-
-**English:**
+> Part of the **Code Solutions Java Modernization Framework** product line. Starting base for modernizing legacy Java systems with Quarkus (modern Java + GraalVM native).
 
 Minimal, functional Quarkus (modern Java) base project.
 
-**This is a starting framework for legacy system modernization with modern Java (alternative/supplement to Play/Spring).**
+## Why this base
 
-## Quick Start / Como rodar a aplicação
+- **Quarkus 3** for fast, lightweight Java development
+- **GraalVM native compilation** ready (build native images for tiny memory + instant startup)
+- **Ready to extend** for the stacks we work with: integration with Kafka, REST for legacy systems, AI agents, databases, etc.
+- **Perfect for**:
+  - Modernizing legacy Java EE / Play / Spring applications
+  - Building scalable backends with cloud-native deployment
+  - Adding AI automations on top of Java services
 
-**Pré-requisitos:** Java 17+ (recomendado) e Maven (ou use o wrapper `./mvnw`).
+## Quick start
 
-**Modo de desenvolvimento (recomendado para começar):**
-
-```bash
-./mvnw compile quarkus:dev
-```
-
-Acesse: http://localhost:8080
-
-- Endpoint principal de exemplo: `/legacy`
-- Dev UI disponível em: http://localhost:8080/q/dev/
-
-**English:**
-
-**Prerequisites:** Java 17+ (recommended) and Maven (wrapper `./mvnw` included).
-
-**Development mode (recommended to start):**
+**Prerequisites:** Java 17+ and Maven (or use the wrapper `./mvnw`).
 
 ```bash
+# Development mode (recommended for getting started)
 ./mvnw compile quarkus:dev
-```
 
-Open: http://localhost:8080
-
-- Main example endpoint: `/legacy`
-- Dev UI: http://localhost:8080/q/dev/
-
-## Running the application in dev mode
-
-You can run your application in dev mode that enables live coding using:
-
-```shell script
-./mvnw compile quarkus:dev
-```
-
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at <http://localhost:8080/q/dev/>.
-
-## Packaging and running the application
-
-The application can be packaged using:
-
-```shell script
+# Production build
 ./mvnw package
+java -jar target/quarkus-app/quarkus-run.jar
 ```
 
-It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/quarkus-app/lib/` directory.
+The app will start on `http://localhost:8080`.
 
-The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
-
-If you want to build an _über-jar_, execute the following command:
-
-```shell script
-./mvnw package -Dquarkus.package.jar.type=uber-jar
-```
-
-The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
-
-## Running the tests
-
-**Português:**
+## Native build (GraalVM)
 
 ```bash
-./mvnw test
-```
-
-Ou para rodar apenas o teste básico:
-
-```bash
-./mvnw test -Dtest=LegacyResourceTest
-```
-
-Testes usam `@QuarkusTest` + JUnit 5. O teste básico de legado não requer serviços externos.
-
-**English:**
-
-```bash
-./mvnw test
-```
-
-Or run a specific basic test:
-
-```bash
-./mvnw test -Dtest=LegacyResourceTest
-```
-
-Tests use `@QuarkusTest` (JUnit 5). The basic legacy test does not require any external services.
-
-## Creating a native executable
-
-You can create a native executable using:
-
-```shell script
 ./mvnw package -Dnative
+./target/quarkus-java-base-runner
 ```
 
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using:
+Produces a tiny native binary (~50MB) with instant startup and minimal memory footprint.
 
-```shell script
-./mvnw package -Dnative -Dquarkus.native.container-build=true
+## Run the tests
+
+```bash
+./mvnw test
 ```
 
-You can then execute your native executable with: `./target/quarkus-java-base-1.0.0-SNAPSHOT-runner`
+## Tech stack
 
-If you want to learn more about building native executables, please consult <https://quarkus.io/guides/maven-tooling>.
+- Java 17+
+- Quarkus 3
+- RESTEasy Reactive (JAX-RS)
+- Hibernate ORM with Panache
+- GraalVM native compilation (optional)
 
-## Provided Code
+> **Português?** Veja [`README.pt-BR.md`](./README.pt-BR.md).
 
-### REST
+## See also
 
-Easily start your REST Web Services
+- **Related base**: [springboot-langchain4j-rag-mcp](https://github.com/ivamartins/springboot-langchain4j-rag-mcp) (AI Agent Kit with Quarkus-style setup)
+- **Product line**: [Java Modernization Framework](https://ivamartins.github.io/code-solutions-site/#produtos)
+- **Code Solutions on LinkedIn**: [linkedin.com/company/code-solutions-it](https://www.linkedin.com/company/code-solutions-it/)
+- **All Code Solutions open source**: [github.com/ivamartins](https://github.com/ivamartins)
 
-[Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
+## License
+
+MIT — see `LICENSE`.
